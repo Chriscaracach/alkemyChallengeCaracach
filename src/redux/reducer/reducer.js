@@ -1,7 +1,16 @@
 const initialState = {
-  user: [], //REVISAR SI TIENE QUE SER BOOL, SI ES NECESARIO
   superHeroes: [],
   equipo: [],
+  powerStats: {
+    intelligence: 0,
+    strength: 0,
+    speed: 0,
+    durability: 0,
+    power: 0,
+    combat: 0,
+  },
+  pesoPromedio: 0,
+  alturaPromedio: 0,
 };
 
 export const searchReducer = (state = initialState, action) => {

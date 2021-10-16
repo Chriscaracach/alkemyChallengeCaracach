@@ -1,0 +1,12 @@
+#img {
+  height: 35vh;
+}
+#powerstats {
+  height: 35vh;
+  opacity: 0;
+  transition: 1s;
+}
+
+#powerstats:hover {
+  opacity: 0.8;
+}
