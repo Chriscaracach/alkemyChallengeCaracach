@@ -1,23 +1,28 @@
 import React from "react";
+import DisplayHeroes from "./DisplayHeroes";
 import Powerstats from "./Hero/Powerstats";
 import SearchBar from "./SearchBar";
 import Team from "./Team/Team";
+import AvgWeightHeight from "./Team/AvgWeightHeight";
 
-const powerstatsfake = {
-  intelligence: 26,
-  strength: 62,
-  speed: 6,
-  durability: 34,
-  power: 12,
-  combat: 99,
-};
 const Home = () => {
   return (
-    <div>
-      <Team></Team>
-      {/* <SearchBar></SearchBar> */}
+    <div className="container">
+      <div className="row">
+        <div className="col-8">
+          <Team></Team>
+        </div>
+        <div className="col-4">
+          <h1>Stats de tu equipo</h1>
+          <Powerstats></Powerstats>
+          <AvgWeightHeight></AvgWeightHeight>
+        </div>
+      </div>
 
-      {/* <Powerstats powerstats={powerstatsfake}></Powerstats> */}
+      <div className="text-center mt-5">
+        <SearchBar></SearchBar>
+        <DisplayHeroes></DisplayHeroes>
+      </div>
     </div>
   );
 };

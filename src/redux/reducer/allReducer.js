@@ -1,11 +1,10 @@
-import { searchReducer, teamReducer } from "./reducer";
+import { heroReducer } from "./reducer";
 import { combineReducers } from "redux";
 
 //Aquí se combinan los reducers de Redux
 
 const allReducer = combineReducers({
-  searchReducer: searchReducer,
-  teamReducer: teamReducer,
+  heroReducer: heroReducer,
 });
 
 export default allReducer;
