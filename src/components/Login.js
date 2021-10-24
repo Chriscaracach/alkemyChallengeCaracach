@@ -1,11 +1,15 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import { useDispatch } from "react-redux";
 import * as Yup from "yup";
+import { setToken } from "../token/AuthFunctions";
+import axios from "axios";
 
 //TODO: Peticion POST con axios
 //TODO: TOKEN
 
 const Login = () => {
+  const dispatch = useDispatch();
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
@@ -15,11 +19,18 @@ const Login = () => {
           .max(20, "Must be 20 characters or less")
           .required("Required"),
       })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={async (values) => {
+        try {
+          const res = await axios.post(
+            "http://challenge-react.alkemy.org/",
+            values
+          );
+          setToken(res.data.token);
+          console.log("token guardado");
+          dispatch({ type: "LOGIN_USER" });
+        } catch (error) {
+          console.log(error);
+        }
       }}
     >
       <div className="container w-25">

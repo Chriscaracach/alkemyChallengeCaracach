@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { getToken, deleteToken } from "../token/AuthFunctions";
 import DisplayHeroes from "./DisplayHeroes";
 import Powerstats from "./Hero/Powerstats";
 import SearchBar from "./SearchBar";
@@ -38,11 +39,18 @@ const Home = () => {
     dispatch({ type: "CALCULAR_PROMEDIOS", avg });
   }, [ReduxTeam]);
 
+  const closeSession = () => {
+    deleteToken();
+    dispatch({ type: "LOGOUT_USER" });
+  };
   return (
     <div className="container">
       <div className="row">
         <div className="col-8">
           <Team></Team>
+          <button className="btn btn-danger" onClick={closeSession}>
+            Cerrar sesión
+          </button>
         </div>
         <div className="col-4">
           <h1>Stats de tu equipo</h1>
