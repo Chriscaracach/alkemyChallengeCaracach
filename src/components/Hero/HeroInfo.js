@@ -1,5 +1,8 @@
 import React from "react";
 
+//TODO: Linkear, hacer funcionar
+//TODO: Pasar a inglés
+
 const HeroInfo = ({
   peso,
   altura,

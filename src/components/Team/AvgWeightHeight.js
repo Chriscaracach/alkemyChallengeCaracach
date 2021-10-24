@@ -3,9 +3,8 @@ import CountUp from "react-countup";
 import { useSelector } from "react-redux";
 
 const AvgWeightHeight = () => {
-  const weight = useSelector((state) => state.heroReducer.pesoPromedio);
-  const height = useSelector((state) => state.heroReducer.alturaPromedio);
-
+  const weight = useSelector((state) => state.heroReducer.avgWeight);
+  const height = useSelector((state) => state.heroReducer.avgHeight);
   return (
     <div className="card p-4">
       <div className="my-1">

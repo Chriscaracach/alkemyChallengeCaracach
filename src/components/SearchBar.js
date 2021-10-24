@@ -3,7 +3,6 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { logDOM } from "@testing-library/dom";
 
 const SearchBar = () => {
   const dispatch = useDispatch();

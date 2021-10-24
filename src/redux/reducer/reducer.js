@@ -1,3 +1,7 @@
+//TODO: Revisar que onda si vas a hacer otro reducer para el login o no.
+//TODO: Revisar lo de los stats null, tiene que entrar ese dato ya transformado, o transformarlo acá
+//TODO: Revisar Calcular promedios, el .length
+
 const initialState = {
   superHeroes: [],
   equipo: [],
@@ -9,8 +13,8 @@ const initialState = {
     power: 0,
     combat: 0,
   },
-  pesoPromedio: 0,
-  alturaPromedio: 0,
+  avgWeight: 0,
+  avgHeight: 0,
 };
 
 export const heroReducer = (state = initialState, action) => {
@@ -62,11 +66,6 @@ export const heroReducer = (state = initialState, action) => {
             state.powerStats.combat +
             Number(action.superHero.powerstats.combat),
         },
-        //NO FUNCIONAN, problema con el tipo de dato, viene un string, necesito un numero
-        pesoPromedio:
-          state.pesoPromedio + Number(action.superHero.appearance.weight[1]),
-        alturaPromedio:
-          state.alturaPromedio + Number(action.superHero.appearance.height[1]),
       };
     case "RESTAR_STATS_EQUIPO":
       return {
@@ -89,10 +88,16 @@ export const heroReducer = (state = initialState, action) => {
             state.powerStats.combat -
             Number(action.superHero.powerstats.combat),
         },
-        pesoPromedio:
-          state.pesoPromedio - Number(action.superHero.appearance.weight[1]),
-        alturaPromedio:
-          state.alturaPromedio - Number(action.superHero.appearance.height[1]),
+      };
+    case "CALCULAR_PROMEDIOS":
+      return {
+        ...state,
+        avgWeight: action.weight,
+        avgHeight: action.height,
+      };
+    case "TRANSFORMAR_STATS_NULL":
+      return {
+        ...state,
       };
     default:
       return state;

@@ -1,12 +1,9 @@
 import React from "react";
-import CountUp from "react-countup";
-import { useSelector } from "react-redux";
 
-//TODO: Revisar tamaño y responsive
+//TODO: REvisar layout
+//TODO: Cambiar nombre, tendría que ser team powerstats
 
-const Powerstats = () => {
-  const powerStats = useSelector((state) => state.heroReducer.powerStats);
-
+const HeroPowerstats = ({ powerStats }) => {
   const powerstatsNames = [
     "Intelligence",
     "Strength",
@@ -30,9 +27,7 @@ const Powerstats = () => {
   const map = powerstatsNewFormat.map((item, i) => (
     <div key={i} className="my-1">
       <p className="d-inline">{item.name}</p>
-      <div className="float-end">
-        <CountUp start={0} end={item.power} duration={1} />
-      </div>
+      <div className="float-end">{item.power}</div>
     </div>
   ));
 
@@ -43,4 +38,4 @@ const Powerstats = () => {
   );
 };
 
-export default Powerstats;
+export default HeroPowerstats;

@@ -1,14 +1,17 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 
+//TODO: Revisar animaciones de entrada y salida
+//TODO: REvisar tamaños de cards
+//TODO: Revisar Layout y Responsive
+
 const DisplayHeroesCard = ({ superHero }) => {
   const dispatch = useDispatch();
 
-  const agregarAlEquipo = (id) => {
+  const agregarHeroe = (id, superHero) => {
     dispatch({ type: "AGREGAR_AL_EQUIPO", id });
     dispatch({ type: "SUMAR_STATS_EQUIPO", superHero });
   };
-
   return (
     <div
       class="card"
@@ -32,7 +35,7 @@ const DisplayHeroesCard = ({ superHero }) => {
           href="a"
           class="btn btn-dark"
           onClick={() => {
-            agregarAlEquipo(superHero.id);
+            agregarHeroe(superHero.id, superHero);
           }}
         >
           Agregar

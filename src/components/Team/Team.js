@@ -2,6 +2,9 @@ import React from "react";
 import TeamCard from "./TeamCard";
 import { useSelector } from "react-redux";
 
+//TODO: Revisar layout en columnas y tamaños de cards
+//TODO: Revisar responsive
+
 const Team = () => {
   const Team = useSelector((state) => state.heroReducer.equipo);
 
@@ -10,8 +13,6 @@ const Team = () => {
       <TeamCard superHero={item}></TeamCard>
     </div>
   ));
-  console.log(Team);
-  console.log(map);
   return (
     <>
       <div className="container">

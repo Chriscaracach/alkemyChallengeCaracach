@@ -1,11 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DisplayHeroes from "./DisplayHeroes";
 import Powerstats from "./Hero/Powerstats";
 import SearchBar from "./SearchBar";
 import Team from "./Team/Team";
 import AvgWeightHeight from "./Team/AvgWeightHeight";
+import { useDispatch, useSelector } from "react-redux";
+
+/*
+  TODO: Unificar Powerstats y avgs en un solo componente
+  TODO: Manejar selector desde el componente de powerstats, el unificado, para que quede mas prolijo
+  TODO: Revisar Layout
+  TODO: Revisar Responsive
+
+
+*/
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const ReduxTeam = useSelector((state) => state.heroReducer.equipo);
+
+  useEffect(() => {
+    ReduxTeam.forEach((hero) => {});
+    let weight = 0;
+    let height = 0;
+    ReduxTeam.forEach((hero) => {
+      let w = hero.appearance.weight.slice(-1, -3);
+      let h = hero.appearance.height.slice(-1, -3);
+      let wn = parseInt(w);
+      let hn = parseInt(h);
+      weight = weight + wn;
+      height = height + hn;
+    });
+    let avg = {
+      weight: weight.length,
+      height: height.length,
+    };
+    dispatch({ type: "CALCULAR_PROMEDIOS", avg });
+  }, [ReduxTeam]);
+
   return (
     <div className="container">
       <div className="row">
