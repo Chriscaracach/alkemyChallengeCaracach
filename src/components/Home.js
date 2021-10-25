@@ -25,16 +25,16 @@ const Home = () => {
     let weight = 0;
     let height = 0;
     ReduxTeam.forEach((hero) => {
-      let w = hero.appearance.weight.slice(-1, -3);
-      let h = hero.appearance.height.slice(-1, -3);
+      let w = hero.appearance.weight[1].slice(0, -3);
+      let h = hero.appearance.height[1].slice(0, -3);
       let wn = parseInt(w);
       let hn = parseInt(h);
       weight = weight + wn;
       height = height + hn;
     });
     let avg = {
-      weight: weight.length,
-      height: height.length,
+      weight: weight / ReduxTeam.length,
+      height: height / ReduxTeam.length,
     };
     dispatch({ type: "CALCULAR_PROMEDIOS", avg });
   }, [ReduxTeam]);

@@ -5,9 +5,6 @@ import * as Yup from "yup";
 import { setToken } from "../token/AuthFunctions";
 import axios from "axios";
 
-//TODO: Peticion POST con axios
-//TODO: TOKEN
-
 const Login = () => {
   const dispatch = useDispatch();
   return (

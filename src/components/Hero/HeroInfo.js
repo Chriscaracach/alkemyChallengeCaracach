@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 //TODO: Linkear, hacer funcionar
 //TODO: Pasar a inglés
@@ -13,35 +15,44 @@ const HeroInfo = ({
   lugarTrabajo,
   img,
 }) => {
+  const hero = useSelector((state) => state.heroReducer.heroDetailSelected);
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-md-4">
-          <img src={img} alt={nombre} />
+          <img src={hero.image.url} alt={hero.name} className="img-fluid" />
         </div>
         <div className="col-md-8">
-          <h1>Ponele que Robin{nombre}</h1>
+          <h1>{hero.name}</h1>
           <ul className="list-group">
             <li className="list-group-item">
-              <p className="lead">Peso: {peso}</p>
+              <p className="lead">Weight: {hero.appearance.weight[1]}</p>
             </li>
             <li className="list-group-item">
-              <p className="lead">Altura: {altura}</p>
+              <p className="lead">Height: {hero.appearance.height[1]}</p>
             </li>
             <li className="list-group-item">
-              <p className="lead">Alias: {alias}</p>
+              <p className="lead">
+                Alias:
+                {hero.biography.aliases.map((item) => {
+                  return " / " + item;
+                })}
+              </p>
             </li>
             <li className="list-group-item">
-              <p className="lead">Color de Ojos: {colorOjos}</p>
+              <p className="lead">Color de Ojos:</p>
             </li>
             <li className="list-group-item">
-              <p className="lead">Color de Cabello: {colorCabello}</p>
+              <p className="lead">Color de Cabello:</p>
             </li>
             <li className="list-group-item">
-              <p className="lead">Lugar de trabajo: {lugarTrabajo}</p>
+              <p className="lead">Lugar de trabajo: {hero.work.base}</p>
             </li>
           </ul>
-          <button className="btn btn-dark">Volver</button>
+          <Link to="/">
+            <button className="btn btn-dark">Volver</button>
+          </Link>
         </div>
       </div>
     </div>

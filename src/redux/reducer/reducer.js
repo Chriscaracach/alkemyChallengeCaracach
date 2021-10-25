@@ -1,9 +1,8 @@
-//TODO: Revisar que onda si vas a hacer otro reducer para el login o no.
-//TODO: Revisar lo de los stats null, tiene que entrar ese dato ya transformado, o transformarlo acá
 //TODO: Revisar Calcular promedios, el .length
 
 const initialState = {
   superHeroes: [],
+  heroDetailSelected: {},
   equipo: [],
   powerStats: {
     intelligence: 0,
@@ -92,12 +91,13 @@ export const heroReducer = (state = initialState, action) => {
     case "CALCULAR_PROMEDIOS":
       return {
         ...state,
-        avgWeight: action.weight,
-        avgHeight: action.height,
+        avgWeight: action.avg.weight,
+        avgHeight: action.avg.height,
       };
-    case "TRANSFORMAR_STATS_NULL":
+    case "SHOW_DETAIL_HERO":
       return {
         ...state,
+        heroDetailSelected: action.hero,
       };
     default:
       return state;
