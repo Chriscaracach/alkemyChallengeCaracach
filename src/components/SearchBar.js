@@ -33,14 +33,17 @@ const SearchBar = () => {
         searchHero(values.searchHero);
       }}
     >
-      <div className="container my-2">
+      <div className="container my-2 w-50">
+        <p className="lead">Search heroes for your team</p>
         <Form>
-          <p className="small">Buscá más héroes para tu equipo</p>
           <Field name="searchHero" type="text" />
-          <ErrorMessage name="searchHero" />
-          <button className="btn btn-dark mx-1" type="submit">
-            Buscar
+          <button className="btn mx-1 action-button" type="submit">
+            <i class="bi bi-search"></i>
           </button>
+          <ErrorMessage
+            name="searchHero"
+            render={(msg) => <p className="error-message">{msg}</p>}
+          />
         </Form>
       </div>
     </Formik>

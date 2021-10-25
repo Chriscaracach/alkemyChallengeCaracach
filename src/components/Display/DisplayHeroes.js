@@ -1,4 +1,5 @@
 import React from "react";
+import "./display.css";
 import { useSelector } from "react-redux";
 import DisplayHeroesCard from "./DisplayHeroesCard";
 

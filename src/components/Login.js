@@ -11,12 +11,14 @@ const Login = () => {
     <Formik
       initialValues={{ email: "", password: "" }}
       validationSchema={Yup.object({
-        email: Yup.string().email("Invalid email address").required("Required"),
+        email: Yup.string()
+          .email("Invalid email address")
+          .required("Email required"),
         password: Yup.string()
           .max(20, "Must be 20 characters or less")
-          .required("Required"),
+          .required("Password required"),
       })}
-      onSubmit={async (values) => {
+      onSubmit={async (values, { resetForm }) => {
         try {
           const res = await axios.post(
             "http://challenge-react.alkemy.org/",
@@ -28,22 +30,42 @@ const Login = () => {
         } catch (error) {
           console.log(error);
         }
+        resetForm({ values: "" });
       }}
     >
-      <div className="container w-25">
+      <div className="container w-25 m-auto mt-5">
         <Form>
           <div className="d-flex flex-column">
             <label htmlFor="email">Email</label>
             <Field name="email" type="email" />
-
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className="my-1">
+              Password
+            </label>
             <Field name="password" type="password" />
-            {/* Solucionar tema de que se mueve el boton cuando aparecen los errores */}
-            <div className="position-relative">
-              <ErrorMessage name="email" />
-              <ErrorMessage name="password" />
+
+            <div className="container w-75 h-25 my-2">
+              <ErrorMessage
+                name="email"
+                render={(msg) => (
+                  <div class="alert alert-danger error-message" role="alert">
+                    {msg}
+                  </div>
+                )}
+              />
+
+              <br />
+
+              <ErrorMessage
+                name="password"
+                render={(msg) => (
+                  <div class="alert alert-danger error-message" role="alert">
+                    {msg}
+                  </div>
+                )}
+              />
             </div>
-            <button className="btn btn-dark my-5" type="submit">
+
+            <button className="btn btn-dark" type="submit">
               OK
             </button>
           </div>

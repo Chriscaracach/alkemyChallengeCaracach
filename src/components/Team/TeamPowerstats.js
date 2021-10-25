@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 //TODO: Revisar tamaño y responsive
 
-const Powerstats = () => {
+const TeamPowerstats = () => {
   const powerStats = useSelector((state) => state.heroReducer.powerStats);
 
   const powerstatsNames = [
@@ -43,4 +43,4 @@ const Powerstats = () => {
   );
 };
 
-export default Powerstats;
+export default TeamPowerstats;

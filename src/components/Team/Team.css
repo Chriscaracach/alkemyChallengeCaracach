@@ -1,11 +1,24 @@
-#img {
-  height: 35vh;
-}
 #powerstats {
+  height: 100%;
+  font-size: 70%;
   opacity: 0;
-  transition: 1s;
+  transition: 400ms;
 }
 
 #powerstats:hover {
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+#teamcard {
+  transition: all 400ms ease-in-out;
+}
+
+#teamcard:hover {
+  transform: scale(1.3);
+}
+#heroPowerstats {
+  z-index: 9;
+}
+#heroPowerstats i {
+  font-size: 1.4rem;
 }

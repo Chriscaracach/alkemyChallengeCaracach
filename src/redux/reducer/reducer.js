@@ -1,9 +1,10 @@
-//TODO: Revisar Calcular promedios, el .length
-
 const initialState = {
   superHeroes: [],
   heroDetailSelected: {},
-  equipo: [],
+  badTeam: [],
+  goodTeam: [],
+  badTeamError: false,
+  goodTeamError: false,
   powerStats: {
     intelligence: 0,
     strength: 0,
@@ -28,23 +29,57 @@ export const heroReducer = (state = initialState, action) => {
         ...state,
         superHeroes: [],
       };
-    case "AGREGAR_AL_EQUIPO":
+    case "ADD_GOOD_HERO":
       return {
         ...state,
-        superHeroes: state.superHeroes.filter((item) => item.id !== action.id), //REVISAR
-        equipo: [
-          ...state.equipo,
+        superHeroes: state.superHeroes.filter((item) => item.id !== action.id),
+        goodTeam: [
+          ...state.goodTeam,
           state.superHeroes.filter((item) => item.id === action.id)[0],
         ],
       };
-    case "QUITAR_DEL_EQUIPO":
+    case "ADD_BAD_HERO":
       return {
         ...state,
-        equipo: state.equipo.filter((item) => item.id !== action.superHero.id),
+        superHeroes: state.superHeroes.filter((item) => item.id !== action.id),
+        badTeam: [
+          ...state.badTeam,
+          state.superHeroes.filter((item) => item.id === action.id)[0],
+        ],
+      };
+    case "REMOVE_BAD_HERO":
+      return {
+        ...state,
+        badTeam: state.badTeam.filter(
+          (item) => item.id !== action.superHero.id
+        ),
         superHeroes: state.superHeroes.concat(action.superHero),
       };
+    case "REMOVE_GOOD_HERO":
+      return {
+        ...state,
+        goodTeam: state.goodTeam.filter(
+          (item) => item.id !== action.superHero.id
+        ),
+        superHeroes: state.superHeroes.concat(action.superHero),
+      };
+    case "GOOD_TEAM_ERROR":
+      return {
+        ...state,
+        goodTeamError: true,
+      };
+    case "BAD_TEAM_ERROR":
+      return {
+        ...state,
+        badTeamError: true,
+      };
+    case "RESET_ERROR":
+      return {
+        ...state,
+        goodTeamError: false,
+        badTeamError: false,
+      };
     case "SUMAR_STATS_EQUIPO":
-      //CUANDO los stats que vienen de la APi son null, se arruina la cuenta. REVISAR
       return {
         ...state,
         powerStats: {

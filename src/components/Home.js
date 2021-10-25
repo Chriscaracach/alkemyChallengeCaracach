@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
-import { getToken, deleteToken } from "../token/AuthFunctions";
-import DisplayHeroes from "./DisplayHeroes";
-import Powerstats from "./Hero/Powerstats";
+import DisplayHeroes from "./Display/DisplayHeroes";
+import TeamPowerstats from "./Team/TeamPowerstats";
 import SearchBar from "./SearchBar";
-import Team from "./Team/Team";
 import AvgWeightHeight from "./Team/AvgWeightHeight";
 import { useDispatch, useSelector } from "react-redux";
-
+import BadTeam from "./Team/BadTeam/BadTeam";
+import GoodTeam from "./Team/GoodTeam/GoodTeam";
+import BadTeamError from "./Team/BadTeam/BadTeamError";
+import GoodTeamError from "./Team/GoodTeam/GoodTeamError";
 /*
   TODO: Unificar Powerstats y avgs en un solo componente
   TODO: Manejar selector desde el componente de powerstats, el unificado, para que quede mas prolijo
@@ -18,10 +19,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const ReduxTeam = useSelector((state) => state.heroReducer.equipo);
+  const bad = useSelector((state) => state.heroReducer.badTeam);
+  const good = useSelector((state) => state.heroReducer.goodTeam);
+  const badError = useSelector((state) => state.heroReducer.badTeamError);
+  const goodError = useSelector((state) => state.heroReducer.GoodTeamError);
+  const ReduxTeam = [...good, ...bad];
+  console.log(ReduxTeam);
 
   useEffect(() => {
-    ReduxTeam.forEach((hero) => {});
     let weight = 0;
     let height = 0;
     ReduxTeam.forEach((hero) => {
@@ -39,26 +44,27 @@ const Home = () => {
     dispatch({ type: "CALCULAR_PROMEDIOS", avg });
   }, [ReduxTeam]);
 
-  const closeSession = () => {
-    deleteToken();
-    dispatch({ type: "LOGOUT_USER" });
-  };
   return (
     <div className="container">
+      {badError ? <BadTeamError></BadTeamError> : null}
+      {goodError ? <GoodTeamError></GoodTeamError> : null}
       <div className="row">
-        <div className="col-8">
-          <Team></Team>
-          <button className="btn btn-danger" onClick={closeSession}>
-            Cerrar sesión
-          </button>
+        <div className="col-md-3">
+          <BadTeam></BadTeam>
         </div>
-        <div className="col-4">
-          <h1>Stats de tu equipo</h1>
-          <Powerstats></Powerstats>
+        <div className="col-md-1"></div>
+        <div className="col-md-4">
+          <h1>Team stats</h1>
+          <TeamPowerstats></TeamPowerstats>
           <AvgWeightHeight></AvgWeightHeight>
+        </div>
+        <div className="col-md-1"></div>
+        <div className="col-md-3">
+          <GoodTeam></GoodTeam>
         </div>
       </div>
 
+      <BadTeamError></BadTeamError>
       <div className="text-center mt-5">
         <SearchBar></SearchBar>
         <DisplayHeroes></DisplayHeroes>
