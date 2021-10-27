@@ -1,6 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import HeroPowerstats from "./HeroPowerstats";
 import "./Team.css";
 
@@ -29,10 +27,8 @@ const TeamCard = ({ superHero }) => {
             ></HeroPowerstats>
           </div>
         </div>
-        <div className="col-7">
-          <div className="text-center">
-            <p>{superHero.name}</p>
-          </div>
+        <div className="col-7 teamcard-name">
+          <p>{superHero.name}</p>
         </div>
       </div>
     </div>

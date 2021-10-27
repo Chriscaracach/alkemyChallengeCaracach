@@ -9,6 +9,7 @@ const Header = () => {
   const closeSession = () => {
     deleteToken();
     dispatch({ type: "LOGOUT_USER" });
+    dispatch({ type: "RESET_SUPERHEROE" });
   };
   return (
     <nav class="navbar">

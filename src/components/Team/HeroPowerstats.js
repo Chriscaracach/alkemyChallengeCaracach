@@ -48,10 +48,10 @@ const HeroPowerstats = ({ powerStats, superHero }) => {
   ));
 
   return (
-    <div className="card p-1 h-100" id="heroPowerstats">
+    <div className="card p-1 h-100 w-100" id="heroPowerstats">
       <div className="row">
         <div className="col-8">{map}</div>
-        <div className="col-4 p-2">
+        <div className="col-4 p-1">
           <Link to="/HeroInfo" style={{ textDecoration: "none" }}>
             <button
               class="btn btn mx-1"

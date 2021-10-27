@@ -46,3 +46,7 @@ nav .btn:hover {
   font-weight: 600;
   color: #e03131;
 }
+
+#searchbar-text {
+  color: #eceff4;
+}

@@ -24,7 +24,6 @@ const Home = () => {
   const badError = useSelector((state) => state.heroReducer.badTeamError);
   const goodError = useSelector((state) => state.heroReducer.GoodTeamError);
   const ReduxTeam = [...good, ...bad];
-  console.log(ReduxTeam);
 
   useEffect(() => {
     let weight = 0;
@@ -46,25 +45,23 @@ const Home = () => {
 
   return (
     <div className="container">
-      {badError ? <BadTeamError></BadTeamError> : null}
-      {goodError ? <GoodTeamError></GoodTeamError> : null}
-      <div className="row">
-        <div className="col-md-3">
+      <div className="row justify-content-around">
+        <div className="col-lg-3 cont-badteam">
           <BadTeam></BadTeam>
         </div>
-        <div className="col-md-1"></div>
-        <div className="col-md-4">
-          <h1>Team stats</h1>
+
+        <div className="col-lg-4 cont-powerstats">
+          <h1 id="team-powerstats-title">Team stats</h1>
           <TeamPowerstats></TeamPowerstats>
           <AvgWeightHeight></AvgWeightHeight>
         </div>
-        <div className="col-md-1"></div>
-        <div className="col-md-3">
+
+        <div className="col-lg-3 cont-goodteam">
           <GoodTeam></GoodTeam>
         </div>
       </div>
-
-      <BadTeamError></BadTeamError>
+      {badError ? <BadTeamError></BadTeamError> : null}
+      {goodError ? <GoodTeamError></GoodTeamError> : null}
       <div className="text-center mt-5">
         <SearchBar></SearchBar>
         <DisplayHeroes></DisplayHeroes>

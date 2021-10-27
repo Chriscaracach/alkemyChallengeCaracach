@@ -28,7 +28,7 @@ const TeamPowerstats = () => {
     return a.power > b.power ? -1 : a.power < b.power ? 1 : 0;
   });
   const map = powerstatsNewFormat.map((item, i) => (
-    <div key={i} className="my-1">
+    <div key={i} className="my-1 team-powerstats-highlight">
       <p className="d-inline">{item.name}</p>
       <div className="float-end">
         <CountUp start={0} end={item.power} duration={1} />
@@ -38,7 +38,9 @@ const TeamPowerstats = () => {
 
   return (
     <>
-      <div className="card p-4 col">{map}</div>
+      <div className="card p-4 col" id="team-powerstats">
+        {map}
+      </div>
     </>
   );
 };

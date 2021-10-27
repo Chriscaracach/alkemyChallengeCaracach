@@ -11,10 +11,16 @@ const BadTeam = () => {
     </div>
   ));
   return (
-    <>
-      <p className="m-0 mt-2">Bad Team</p>
-      <div className="container p-2 border rounded m-2">{map}</div>
-    </>
+    <div className="m-2">
+      <h1 id="team-bad-title">Bad Team</h1>
+      {BadTeam.length === 0 ? (
+        <p className="team-empty-text">No heros in Bad Team</p>
+      ) : (
+        <div className="container p-2 m-2 text-center" id="team-bad-container">
+          {map}
+        </div>
+      )}
+    </div>
   );
 };
 

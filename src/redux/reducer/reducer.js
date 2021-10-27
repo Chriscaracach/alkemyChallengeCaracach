@@ -3,8 +3,8 @@ const initialState = {
   heroDetailSelected: {},
   badTeam: [],
   goodTeam: [],
-  badTeamError: false,
-  goodTeamError: false,
+  badTeamComplete: false,
+  goodTeamComplete: false,
   powerStats: {
     intelligence: 0,
     strength: 0,
@@ -63,21 +63,25 @@ export const heroReducer = (state = initialState, action) => {
         ),
         superHeroes: state.superHeroes.concat(action.superHero),
       };
-    case "GOOD_TEAM_ERROR":
+    case "GOOD_TEAM_COMPLETE":
       return {
         ...state,
-        goodTeamError: true,
+        goodTeamComplete: true,
       };
-    case "BAD_TEAM_ERROR":
+    case "BAD_TEAM_COMPLETE":
       return {
         ...state,
-        badTeamError: true,
+        badTeamComplete: true,
       };
-    case "RESET_ERROR":
+    case "RESET_GOOD_COMPLETE":
       return {
         ...state,
-        goodTeamError: false,
-        badTeamError: false,
+        goodTeamComplete: false,
+      };
+    case "RESET_BAD_COMPLETE":
+      return {
+        ...state,
+        badTeamComplete: false,
       };
     case "SUMAR_STATS_EQUIPO":
       return {

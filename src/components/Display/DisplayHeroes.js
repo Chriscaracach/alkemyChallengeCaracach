@@ -1,7 +1,8 @@
 import React from "react";
 import "./display.css";
 import { useSelector } from "react-redux";
-import DisplayHeroesCard from "./DisplayHeroesCard";
+import BadHeroCard from "./BadHeroCard";
+import GoodHeroCard from "./GoodHeroCard";
 
 /*
   TODO: UNificar Display y crear una carpeta
@@ -35,7 +36,13 @@ const DisplayHeroes = () => {
     heroesNullTo0.push(hero);
   });
   const map = heroesNullTo0.map((item) => {
-    return <DisplayHeroesCard superHero={item}></DisplayHeroesCard>;
+    if (item.biography.alignment === "bad") {
+      return <BadHeroCard superHero={item}></BadHeroCard>;
+    }
+    if (item.biography.alignment === "good") {
+      return <GoodHeroCard superHero={item}></GoodHeroCard>;
+    }
+    return null;
   });
 
   return <div className="container">{map}</div>;

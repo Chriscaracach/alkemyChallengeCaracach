@@ -7,6 +7,12 @@ import { useSelector } from "react-redux";
 const DisplayHeroesCard = ({ superHero }) => {
   const badHeroes = useSelector((state) => state.heroReducer.badTeam);
   const goodHeroes = useSelector((state) => state.heroReducer.goodTeam);
+  const badTeamComplete = useSelector(
+    (state) => state.heroReducer.badTeamComplete
+  );
+  const goodTeamComplete = useSelector(
+    (state) => state.heroReducer.goodTeamComplete
+  );
   const dispatch = useDispatch();
 
   const agregarHeroe = (id, superHero) => {
@@ -14,24 +20,21 @@ const DisplayHeroesCard = ({ superHero }) => {
       if (badHeroes.length < 3) {
         dispatch({ type: "ADD_BAD_HERO", id });
         dispatch({ type: "SUMAR_STATS_EQUIPO", superHero });
-      } else {
-        dispatch({ type: "BAD_TEAM_ERROR" });
-        setTimeout(() => {
-          dispatch({ type: "RESET_ERROR" });
-        }, 3000);
+      }
+      if (badHeroes.length === 3) {
+        dispatch({ type: "BAD_TEAM_COMPLETE" });
       }
     } else {
       if (goodHeroes.length < 3) {
         dispatch({ type: "ADD_GOOD_HERO", id });
         dispatch({ type: "SUMAR_STATS_EQUIPO", superHero });
-      } else {
-        dispatch({ type: "GOOD_TEAM_ERROR" });
-        setTimeout(() => {
-          dispatch({ type: "RESET_ERROR" });
-        }, 3000);
+      }
+      if (goodHeroes.length === 3) {
+        dispatch({ type: "GOOD_TEAM_COMPLETE" });
       }
     }
   };
+
   return (
     <div
       class="card m-2"
@@ -52,15 +55,32 @@ const DisplayHeroesCard = ({ superHero }) => {
         ) : (
           <span className="badge bg-success mx-2">Good</span>
         )}
-        <button
-          href="a"
-          class="btn mx-2 fs-2"
-          onClick={() => {
-            agregarHeroe(superHero.id, superHero);
-          }}
-        >
-          <i class="bi bi-plus-circle"></i>
-        </button>
+
+        {superHero.biography.alignment === "good" && goodTeamComplete ? (
+          <span class="badge bg-secondary my-3">Good team complete</span>
+        ) : (
+          <button
+            class="btn mx-2 fs-2"
+            onClick={() => {
+              agregarHeroe(superHero.id, superHero);
+            }}
+          >
+            <i class="bi bi-plus-circle"></i>
+          </button>
+        )}
+
+        {superHero.biography.alignment === "bad" && badTeamComplete ? (
+          <span class="badge bg-secondary my-3">Bad team complete</span>
+        ) : (
+          <button
+            class="btn mx-2 fs-2"
+            onClick={() => {
+              agregarHeroe(superHero.id, superHero);
+            }}
+          >
+            <i class="bi bi-plus-circle"></i>
+          </button>
+        )}
       </div>
     </div>
   );

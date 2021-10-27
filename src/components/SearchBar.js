@@ -1,4 +1,5 @@
 import React from "react";
+import "../App.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -33,8 +34,10 @@ const SearchBar = () => {
         searchHero(values.searchHero);
       }}
     >
-      <div className="container my-2 w-50">
-        <p className="lead">Search heroes for your team</p>
+      <div className="container my-2 w-50 text-center">
+        <p className="lead" id="searchbar-text">
+          Search heroes for your team
+        </p>
         <Form>
           <Field name="searchHero" type="text" />
           <button className="btn mx-1 action-button" type="submit">
