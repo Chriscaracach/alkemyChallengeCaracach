@@ -18,7 +18,7 @@ const Header = () => {
           <h3>Superhero</h3>
         </Link>
         <button className="btn" onClick={closeSession}>
-          Cerrar sesión
+          Log out
         </button>
       </div>
     </nav>

@@ -1,5 +1,6 @@
 const initialState = {
   superHeroes: [],
+  isLoading: false,
   heroDetailSelected: {},
   badTeam: [],
   goodTeam: [],
@@ -23,6 +24,16 @@ export const heroReducer = (state = initialState, action) => {
       return {
         ...state,
         superHeroes: state.superHeroes.concat(action.results),
+      };
+    case "SET_IS_LOADING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "RESET_IS_LOADING":
+      return {
+        ...state,
+        isLoading: false,
       };
     case "RESET_SUPERHEROE":
       return {

@@ -1,4 +1,5 @@
 import React from "react";
+import "./Hero.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -6,17 +7,25 @@ const HeroInfo = () => {
   const hero = useSelector((state) => state.heroReducer.heroDetailSelected);
 
   return (
-    <div className="container w-75 border rounded p-2 m-auto my-3">
+    <div
+      className="container w-75 border rounded p-2 m-auto my-3"
+      id="Hero-container"
+    >
       <div className="row">
         <div className="col-md-4">
-          <img src={hero.image.url} alt={hero.name} className="img-fluid" />
+          <img
+            src={hero.image.url}
+            alt={hero.name}
+            className="img-fluid rounded"
+            id="Hero-img"
+          />
         </div>
-        <div className="col-md-8">
+        <div className="col-md-8 p-3">
           <Link to="/">
             <button className="btn btn-close btn-lg action-button float-end"></button>
           </Link>
-          <h1>{hero.name}</h1>
-          <ul className="list-group ul-custom p-2">
+          <h1 id="Hero-title">{hero.name}</h1>
+          <ul className="list-group ul-custom p-2 m-1">
             <li className="list-group-item li-custom">
               <p className="lead p-custom m-auto">
                 Weight: {hero.appearance.weight[1]}
