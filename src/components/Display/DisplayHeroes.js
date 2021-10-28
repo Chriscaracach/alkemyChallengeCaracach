@@ -4,16 +4,10 @@ import { useSelector } from "react-redux";
 import BadHeroCard from "./BadHeroCard";
 import GoodHeroCard from "./GoodHeroCard";
 
-/*
-  TODO: UNificar Display y crear una carpeta
-  TODO: REvisar tamaños de cards, son un poco grandes
-  TODO: Crear Loader, revisar cómo hacemos eso con Redux, capaz creando una variable loading
-
-*/
-
 const DisplayHeroes = () => {
   const heroes = useSelector((state) => state.heroReducer.superHeroes);
   const heroesNullTo0 = [];
+  //Quitamos los valores null de los powerstats de los heroes, porque arruinan los powerstats del equipo al sumarse
   heroes.forEach((hero) => {
     if (hero.powerstats.intelligence === "null") {
       hero.powerstats.intelligence = 0;

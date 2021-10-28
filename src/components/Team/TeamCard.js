@@ -2,13 +2,9 @@ import React from "react";
 import HeroPowerstats from "./HeroPowerstats";
 import "./Team.css";
 
-//TODO: Linkear con HeroInfo ida y vuelta
-//TODO: Revisar columnas
-//TODO: Transiciones
-
 const TeamCard = ({ superHero }) => {
   return (
-    <div class="card m-2" id="teamcard">
+    <div className="card m-2" id="teamcard">
       <div className="row">
         <div className="col-5">
           <img

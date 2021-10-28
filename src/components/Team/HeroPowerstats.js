@@ -1,25 +1,27 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
-//TODO: REvisar layout
-//TODO: Cambiar nombre, tendría que ser team powerstats
+import {
+  removeBadHero,
+  removeGoodHero,
+  subTeamStats,
+  showDetailHero,
+} from "../../redux/actions/heroActions";
 
 const HeroPowerstats = ({ powerStats, superHero }) => {
   const dispatch = useDispatch();
-  const quitarDelEquipo = () => {
+  const removeFromTeam = () => {
     if (superHero.biography.alignment === "bad") {
-      dispatch({ type: "REMOVE_BAD_HERO", superHero });
-      dispatch({ type: "RESTAR_STATS_EQUIPO", superHero });
+      dispatch(removeBadHero(superHero));
+      dispatch(subTeamStats(superHero));
     }
     if (superHero.biography.alignment === "good") {
-      dispatch({ type: "REMOVE_GOOD_HERO", superHero });
-      dispatch({ type: "RESTAR_STATS_EQUIPO", superHero });
+      dispatch(removeGoodHero(superHero));
+      dispatch(subTeamStats(superHero));
     }
   };
-  const showDetailHero = (hero) => {
-    dispatch({ type: "SHOW_DETAIL_HERO", hero });
-  };
+
+  //Era necesario darle otro formato a los datos que venían de la API
   const powerstatsNames = [
     "Intelligence",
     "Strength",
@@ -37,6 +39,7 @@ const HeroPowerstats = ({ powerStats, superHero }) => {
     };
     powerstatsNewFormat.push(stat);
   }
+  //Con éste sort() ordeno los datos para que salga primero el que más puntos tiene
   powerstatsNewFormat.sort(function (a, b) {
     return a.power > b.power ? -1 : a.power < b.power ? 1 : 0;
   });
@@ -54,23 +57,23 @@ const HeroPowerstats = ({ powerStats, superHero }) => {
         <div className="col-4 p-1">
           <Link to="/HeroInfo" style={{ textDecoration: "none" }}>
             <button
-              class="btn btn mx-1"
+              className="btn btn mx-1"
               onClick={() => {
-                showDetailHero(superHero);
+                dispatch(showDetailHero(superHero));
               }}
             >
-              <i class="bi bi-info-circle"></i>
+              <i className="bi bi-info-circle"></i>
             </button>
           </Link>
 
           <button
             href="a"
-            class="btn mx-1"
+            className="btn mx-1"
             onClick={() => {
-              quitarDelEquipo(superHero.id);
+              removeFromTeam(superHero.id);
             }}
           >
-            <i class="bi bi-trash"></i>
+            <i className="bi bi-trash"></i>
           </button>
         </div>
       </div>

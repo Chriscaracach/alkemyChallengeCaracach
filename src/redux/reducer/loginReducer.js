@@ -1,6 +1,7 @@
 const initialState = {
   userLogged: false,
   loginError: false,
+  isLoading: false,
 };
 
 export const loginReducer = (state = initialState, action) => {
@@ -24,6 +25,16 @@ export const loginReducer = (state = initialState, action) => {
       return {
         ...state,
         loginError: false,
+      };
+    case "IS_LOADING":
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case "RESET_LOADING":
+      return {
+        ...state,
+        isLoading: false,
       };
     default:
       return state;

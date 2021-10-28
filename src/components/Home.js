@@ -6,26 +6,16 @@ import AvgWeightHeight from "./Team/AvgWeightHeight";
 import { useDispatch, useSelector } from "react-redux";
 import BadTeam from "./Team/BadTeam/BadTeam";
 import GoodTeam from "./Team/GoodTeam/GoodTeam";
-import BadTeamError from "./Team/BadTeam/BadTeamError";
-import GoodTeamError from "./Team/GoodTeam/GoodTeamError";
-/*
-  TODO: Unificar Powerstats y avgs en un solo componente
-  TODO: Manejar selector desde el componente de powerstats, el unificado, para que quede mas prolijo
-  TODO: Revisar Layout
-  TODO: Revisar Responsive
-
-
-*/
+import { calculateAverage } from "../redux/actions/heroActions";
 
 const Home = () => {
   const dispatch = useDispatch();
   const bad = useSelector((state) => state.heroReducer.badTeam);
   const good = useSelector((state) => state.heroReducer.goodTeam);
-  const badError = useSelector((state) => state.heroReducer.badTeamError);
-  const goodError = useSelector((state) => state.heroReducer.GoodTeamError);
-  const ReduxTeam = [...good, ...bad];
 
+  //Éste hook es necesario para calcular los promedios y modificar un poco el formato de los datos que viene de la API, cada vez que se suma un heroe/heroína nuevo al equipo.
   useEffect(() => {
+    const ReduxTeam = [...good, ...bad];
     let weight = 0;
     let height = 0;
     ReduxTeam.forEach((hero) => {
@@ -40,8 +30,8 @@ const Home = () => {
       weight: weight / ReduxTeam.length,
       height: height / ReduxTeam.length,
     };
-    dispatch({ type: "CALCULAR_PROMEDIOS", avg });
-  }, [ReduxTeam]);
+    dispatch(calculateAverage(avg));
+  }, [dispatch, bad, good]);
 
   return (
     <div className="container">
@@ -60,8 +50,6 @@ const Home = () => {
           <GoodTeam></GoodTeam>
         </div>
       </div>
-      {badError ? <BadTeamError></BadTeamError> : null}
-      {goodError ? <GoodTeamError></GoodTeamError> : null}
       <div className="text-center mt-5">
         <SearchBar></SearchBar>
         <DisplayHeroes></DisplayHeroes>

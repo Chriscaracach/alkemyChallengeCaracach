@@ -7,25 +7,22 @@ import Header from "./components/Header";
 import Login from "./components/Login";
 import Home from "./components/Home";
 import HeroInfo from "./components/Hero/HeroInfo";
-
-/*
-  
-
-*/
+import { loginUser } from "./redux/actions/loginActions";
 
 const App = () => {
   const dispatch = useDispatch();
   const userLogged = useSelector((state) => state.loginReducer.userLogged);
+  //Efectos para chequear que el login del user y el token
   useEffect(() => {
     if (getToken() === true) {
-      dispatch({ type: "LOGIN_USER" });
+      dispatch(loginUser());
     }
-  }, [userLogged]);
+  }, [userLogged, dispatch]);
   useEffect(() => {
     if (getToken() === true) {
-      dispatch({ type: "LOGIN_USER" });
+      dispatch(loginUser());
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
@@ -39,7 +36,9 @@ const App = () => {
               <Route component={HeroInfo} path="/heroinfo" />
             </>
           ) : (
-            <Login></Login>
+            <>
+              <Login></Login>
+            </>
           )}
         </Switch>
       </BrowserRouter>

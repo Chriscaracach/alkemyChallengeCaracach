@@ -1,27 +1,31 @@
 import React from "react";
 import Loader from "./Loader";
-import "../App.css";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import {
+  searchSuperHero,
+  resetSearch,
+  setIsLoading,
+  resetIsLoading,
+} from "../redux/actions/heroActions";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.heroReducer.isLoading);
 
-  // const baseUrl = "/";
-  const baseUrl = "https://superheroapi.com/api.php/"; //REVISAR ESTO
+  const baseUrl = "https://superheroapi.com/api.php/";
   const token = "10226588721411121";
 
   const searchHero = async (hero) => {
     try {
-      dispatch({ type: "SET_IS_LOADING" });
+      dispatch(setIsLoading());
       const res = await axios.get(baseUrl + token + "/search/" + hero);
       const results = res.data.results;
-      dispatch({ type: "RESET_SUPERHEROE" });
-      dispatch({ type: "BUSCAR_SUPERHEROE", results });
-      dispatch({ type: "RESET_IS_LOADING" });
+      dispatch(resetSearch());
+      dispatch(searchSuperHero(results));
+      dispatch(resetIsLoading());
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +50,7 @@ const SearchBar = () => {
           <Form>
             <Field name="searchHero" type="text" />
             <button className="btn m-1 action-button" type="submit">
-              <i class="bi bi-search"></i>
+              <i className="bi bi-search"></i>
             </button>
             <ErrorMessage
               name="searchHero"

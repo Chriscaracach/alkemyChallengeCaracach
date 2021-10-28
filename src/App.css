@@ -1,22 +1,32 @@
-/*COLORES
-dark fondo: #3b4252
-notan dark: #4c566a
-medio : #e5e9f0
-light : #eceff4
-
-danger: #e03131
-danger dark:#c92a2a
-success: #40c057
-info: #339af0
-
-info light: #74c0fc
-*/
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css");
 
 body {
   min-height: 100vh;
   background-image: linear-gradient(#3b4252, #191c24);
 }
+/*CLASES GENERALES*/
+.action-button {
+  background-color: #74c0fc;
+  transition: 400ms;
+}
+.action-button:hover {
+  background-color: #339af0;
+}
+.error-message {
+  margin: 0 auto;
+  font-weight: 600;
+  color: #e03131;
+  animation: fadeIn linear 500ms;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*NAV*/
 nav {
   background-color: #4c566a;
 }
@@ -35,32 +45,11 @@ nav .btn:hover {
   background-color: #c92a2a;
 }
 
-.action-button {
-  background-color: #74c0fc;
-  transition: 400ms;
-}
-.action-button:hover {
-  background-color: #339af0;
-}
-.error-message {
-  margin: 0 auto;
-  font-weight: 600;
-  color: #e03131;
-  animation: fadeIn linear 500ms;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+/*LOGIN*/
 .login-label {
   color: #eceff4;
 }
-
+/*SEARCHBAR*/
 #searchbar-text {
   color: #eceff4;
 }

@@ -2,8 +2,6 @@ import React from "react";
 import CountUp from "react-countup";
 import { useSelector } from "react-redux";
 
-//TODO: Revisar tamaño y responsive
-
 const TeamPowerstats = () => {
   const powerStats = useSelector((state) => state.heroReducer.powerStats);
 

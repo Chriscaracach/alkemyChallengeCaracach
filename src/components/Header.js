@@ -1,25 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { deleteToken } from "../token/AuthFunctions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../redux/actions/loginActions";
+import { resetSearch, resetDetailHero } from "../redux/actions/heroActions";
 
 const Header = () => {
   const dispatch = useDispatch();
-
-  const closeSession = () => {
+  const logged = useSelector((state) => state.loginReducer.userLogged);
+  const logout = () => {
     deleteToken();
-    dispatch({ type: "LOGOUT_USER" });
-    dispatch({ type: "RESET_SUPERHEROE" });
+    dispatch(logoutUser());
+    dispatch(resetSearch());
+    dispatch(resetDetailHero());
   };
   return (
-    <nav class="navbar">
-      <div class="container-fluid">
+    <nav className="navbar">
+      <div className="container-fluid">
         <Link to="/" style={{ textDecoration: "none" }}>
           <h3>Superhero</h3>
         </Link>
-        <button className="btn" onClick={closeSession}>
-          Log out
-        </button>
+        {logged ? (
+          <button className="btn" onClick={logout}>
+            Log out
+          </button>
+        ) : null}
       </div>
     </nav>
   );

@@ -1,13 +1,22 @@
 import React from "react";
+import Loader from "./Loader";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { setToken } from "../token/AuthFunctions";
 import axios from "axios";
+import {
+  loginUser,
+  loginError,
+  loginErrorReset,
+  isLoading,
+  isLoadingReset,
+} from "../redux/actions/loginActions";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const loginError = useSelector((state) => state.loginReducer.loginError);
+  const isLoginError = useSelector((state) => state.loginReducer.loginError);
+  const Loading = useSelector((state) => state.loginReducer.isLoading);
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
@@ -21,16 +30,18 @@ const Login = () => {
       })}
       onSubmit={async (values, { resetForm }) => {
         try {
+          dispatch(isLoading());
           const res = await axios.post(
             "http://challenge-react.alkemy.org/",
             values
           );
           setToken(res.data.token);
-          dispatch({ type: "LOGIN_USER" });
+          dispatch(loginUser());
+          dispatch(isLoadingReset());
         } catch (error) {
-          dispatch({ type: "LOGIN_ERROR" });
+          dispatch(loginError());
           setTimeout(() => {
-            dispatch({ type: "LOGIN_ERROR_RESET" });
+            dispatch(loginErrorReset());
           }, 5000);
           console.log(error);
         }
@@ -58,11 +69,12 @@ const Login = () => {
                 name="password"
                 render={(msg) => <p className="error-message">{msg}</p>}
               />
-              {loginError ? (
+              {isLoginError ? (
                 <p className="error-message">
                   Invalid email or password, try again
                 </p>
               ) : null}
+              {Loading ? <Loader></Loader> : null}
             </div>
 
             <button className="btn action-button" type="submit">
