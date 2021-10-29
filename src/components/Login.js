@@ -44,6 +44,7 @@ const Login = () => {
             dispatch(loginErrorReset());
           }, 5000);
           console.log(error);
+          dispatch(isLoadingReset());
         }
         resetForm({ values: "" });
       }}

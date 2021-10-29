@@ -25,6 +25,6 @@ export const isLoading = () => {
 };
 export const isLoadingReset = () => {
   return {
-    type: "IS_LOADING_RESET",
+    type: "RESET_LOADING",
   };
 };
