@@ -10,7 +10,7 @@ Lo que podés ver en éste repositorio se trata de una app para visualizar super
 
 Para acceder vas a tener que loguearte con el mail __challenge@alkemy.org__ y la contraseña **react**.
 
-![Login](https://ibb.co/fkKFYjD "Login")
+![Login](imgReadme/login.png "Login")
 
 La **API** que vamos a consumir es [SuperHeroAPI](https://superheroapi.com/).
 
@@ -18,15 +18,15 @@ La **API** que vamos a consumir es [SuperHeroAPI](https://superheroapi.com/).
 
 Dentro de las funcionalidades, podés buscar héroes de la API, agregarlos a tu equipo (pueden ser malos o buenos),
 
-![Búsqueda](https://ibb.co/frnmPk5 "Búsqueda")
+![Búsqueda](imgReadme/heros.png "Búsqueda")
 
-![Team](https://ibb.co/m84XxYx "Team")
+![Team](imgReadme/team.png "Team")
 
-![Good Team](https://ibb.co/rfV7PTT "Good Team")
+![Good Team](imgReadme/goodteam.png "Good Team")
 
 revisar información detallada de cada héroe,
 
-![info](https://ibb.co/kKqftSY "Info")
+![info](imgReadme/info.png "Info")
 
 y quitarlos de tu equipo si no estás conforme.
 
