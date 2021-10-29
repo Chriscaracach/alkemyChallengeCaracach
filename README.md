@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Alkemy Challenge - Christian Caracach
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Éste es el repositorio del proyecto que preparé para acceder a la aceleración de Alkemy.
 
-## Available Scripts
+Antes que nada, gracias a Alkemy por la oportunidad.
 
-In the project directory, you can run:
+## Superhero challenge
 
-### `yarn start`
+Lo que podés ver en éste repositorio se trata de una app para visualizar superhéroes/superheroínas y agregarlas a tu equipo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Para acceder vas a tener que loguearte con el mail __challenge@alkemy.org__ y la contraseña **react**.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Login](https://ibb.co/fkKFYjD "Login")
 
-### `yarn test`
+La **API** que vamos a consumir es [SuperHeroAPI](https://superheroapi.com/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Funcionalidades
 
-### `yarn build`
+Dentro de las funcionalidades, podés buscar héroes de la API, agregarlos a tu equipo (pueden ser malos o buenos),
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Búsqueda](https://ibb.co/frnmPk5 "Búsqueda")
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Team](https://ibb.co/m84XxYx "Team")
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Good Team](https://ibb.co/rfV7PTT "Good Team")
 
-### `yarn eject`
+revisar información detallada de cada héroe,
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![info](https://ibb.co/kKqftSY "Info")
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+y quitarlos de tu equipo si no estás conforme.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Además contás con información de los powerstats de cada héroe en tu equipo, y una suma de los stats totales (y promedios de peso y altura). La stat que más puntos tenga en tu equipo, se pinta de otro color.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Login
 
-## Learn More
+El login tiene la particularidad de que cuando se envía la información de email y contraseña, obtiene un token de vuelta y lo guarda en LocalStorage para no tener que repetir el log cada vez que se entra en la app.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Instalación
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Primero, cloná el repositorio **git clone https://github.com/Chriscaracach/alkemyChallengeCaracach** ,
 
-### Code Splitting
+- Después, instalá las dependencias con **npm install**.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Corrélo en tu pc con **npm start**.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Si solo te interesa utilizar la app sin ver el repositorio, podés verla [ACÁ](https://alkemychallengeccaracach.web.app/) .

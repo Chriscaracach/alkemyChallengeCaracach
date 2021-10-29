@@ -46,7 +46,6 @@ const Login = () => {
           console.log(error);
           dispatch(isLoadingReset());
         }
-        resetForm({ values: "" });
       }}
     >
       <div className="container w-25 m-auto mt-5" id="login-container">
