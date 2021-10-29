@@ -2,7 +2,8 @@ import React from "react";
 import Loader from "./Loader";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import { APIcall } from "../services/APIcall";
+import { BASE_URL, TOKEN } from "../constants/constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
   searchSuperHero,
@@ -15,14 +16,11 @@ const SearchBar = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.heroReducer.isLoading);
 
-  const baseUrl = "https://superheroapi.com/api.php/";
-  const token = "10226588721411121";
-
   const searchHero = async (hero) => {
     try {
       dispatch(setIsLoading());
-      const res = await axios.get(baseUrl + token + "/search/" + hero);
-      const results = res.data.results;
+      //Función de llamada a la API
+      const results = await APIcall(BASE_URL, TOKEN, hero);
       dispatch(resetSearch());
       dispatch(searchSuperHero(results));
       dispatch(resetIsLoading());
