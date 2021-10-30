@@ -44,4 +44,4 @@ El login tiene la particularidad de que cuando se envía la información de emai
 
 - Corrélo en tu pc con **npm start**.
 
-Si solo te interesa utilizar la app sin ver el repositorio, podés verla [ACÁ](https://alkemychallengeccaracach.web.app/) .
+##Si solo te interesa utilizar la app sin ver el repositorio, podés verla [ACÁ](https://alkemychallengeccaracach.web.app/) .
