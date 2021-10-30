@@ -1,3 +1,23 @@
+import {
+  SEARCH_SUPERHERO,
+  SET_IS_LOADING,
+  RESET_IS_LOADING,
+  RESET_SEARCH,
+  ADD_GOOD_HERO,
+  ADD_BAD_HERO,
+  REMOVE_GOOD_HERO,
+  REMOVE_BAD_HERO,
+  GOOD_TEAM_COMPLETE,
+  BAD_TEAM_COMPLETE,
+  RESET_GOOD_COMPLETE,
+  RESET_BAD_COMPLETE,
+  SUM_TEAM_STATS,
+  SUB_TEAM_STATS,
+  CALCULATE_AVERAGE,
+  SHOW_DETAIL_HERO,
+  RESET_DETAIL_HERO,
+} from "../../constants/constants";
+
 const initialState = {
   superHeroes: [],
   isLoading: false,
@@ -20,27 +40,27 @@ const initialState = {
 
 export const heroReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "SEARCH_SUPERHERO":
+    case SEARCH_SUPERHERO:
       return {
         ...state,
         superHeroes: state.superHeroes.concat(action.payload),
       };
-    case "SET_IS_LOADING":
+    case SET_IS_LOADING:
       return {
         ...state,
         isLoading: true,
       };
-    case "RESET_IS_LOADING":
+    case RESET_IS_LOADING:
       return {
         ...state,
         isLoading: false,
       };
-    case "RESET_SEARCH":
+    case RESET_SEARCH:
       return {
         ...state,
         superHeroes: [],
       };
-    case "ADD_GOOD_HERO":
+    case ADD_GOOD_HERO:
       return {
         ...state,
         superHeroes: state.superHeroes.filter(
@@ -51,7 +71,7 @@ export const heroReducer = (state = initialState, action) => {
           state.superHeroes.filter((item) => item.id === action.payload)[0],
         ],
       };
-    case "ADD_BAD_HERO":
+    case ADD_BAD_HERO:
       return {
         ...state,
         superHeroes: state.superHeroes.filter(
@@ -62,13 +82,13 @@ export const heroReducer = (state = initialState, action) => {
           state.superHeroes.filter((item) => item.id === action.payload)[0],
         ],
       };
-    case "REMOVE_BAD_HERO":
+    case REMOVE_BAD_HERO:
       return {
         ...state,
         badTeam: state.badTeam.filter((item) => item.id !== action.payload.id),
         superHeroes: state.superHeroes.concat(action.payload),
       };
-    case "REMOVE_GOOD_HERO":
+    case REMOVE_GOOD_HERO:
       return {
         ...state,
         goodTeam: state.goodTeam.filter(
@@ -76,27 +96,27 @@ export const heroReducer = (state = initialState, action) => {
         ),
         superHeroes: state.superHeroes.concat(action.payload),
       };
-    case "GOOD_TEAM_COMPLETE":
+    case GOOD_TEAM_COMPLETE:
       return {
         ...state,
         goodTeamComplete: true,
       };
-    case "BAD_TEAM_COMPLETE":
+    case BAD_TEAM_COMPLETE:
       return {
         ...state,
         badTeamComplete: true,
       };
-    case "RESET_GOOD_COMPLETE":
+    case RESET_GOOD_COMPLETE:
       return {
         ...state,
         goodTeamComplete: false,
       };
-    case "RESET_BAD_COMPLETE":
+    case RESET_BAD_COMPLETE:
       return {
         ...state,
         badTeamComplete: false,
       };
-    case "SUM_TEAM_STATS":
+    case SUM_TEAM_STATS:
       return {
         ...state,
         powerStats: {
@@ -117,7 +137,7 @@ export const heroReducer = (state = initialState, action) => {
             state.powerStats.combat + Number(action.payload.powerstats.combat),
         },
       };
-    case "SUB_TEAM_STATS":
+    case SUB_TEAM_STATS:
       return {
         ...state,
         powerStats: {
@@ -138,18 +158,18 @@ export const heroReducer = (state = initialState, action) => {
             state.powerStats.combat - Number(action.payload.powerstats.combat),
         },
       };
-    case "CALCULATE_AVERAGE":
+    case CALCULATE_AVERAGE:
       return {
         ...state,
         avgWeight: action.payload.weight,
         avgHeight: action.payload.height,
       };
-    case "SHOW_DETAIL_HERO":
+    case SHOW_DETAIL_HERO:
       return {
         ...state,
         heroDetailSelected: action.payload,
       };
-    case "RESET_DETAIL_HERO":
+    case RESET_DETAIL_HERO:
       return {
         ...state,
         heroDetailSelected: {},

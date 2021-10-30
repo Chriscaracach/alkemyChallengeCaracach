@@ -3,6 +3,7 @@ import "./display.css";
 import { useSelector } from "react-redux";
 import BadHeroCard from "./BadHeroCard";
 import GoodHeroCard from "./GoodHeroCard";
+import { BAD, GOOD } from "../../constants/constants";
 
 const DisplayHeroes = () => {
   const heroes = useSelector((state) => state.heroReducer.superHeroes);
@@ -30,10 +31,10 @@ const DisplayHeroes = () => {
     heroesNullTo0.push(hero);
   });
   const map = heroesNullTo0.map((item) => {
-    if (item.biography.alignment === "bad") {
+    if (item.biography.alignment === BAD) {
       return <BadHeroCard superHero={item}></BadHeroCard>;
     }
-    if (item.biography.alignment === "good") {
+    if (item.biography.alignment === GOOD) {
       return <GoodHeroCard superHero={item}></GoodHeroCard>;
     }
     return null;

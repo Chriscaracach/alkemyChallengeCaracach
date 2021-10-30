@@ -4,9 +4,8 @@ import TeamPowerstats from "./Team/TeamPowerstats";
 import SearchBar from "./SearchBar";
 import AvgWeightHeight from "./Team/AvgWeightHeight";
 import { useDispatch, useSelector } from "react-redux";
-import BadTeam from "./Team/BadTeam/BadTeam";
-import GoodTeam from "./Team/GoodTeam/GoodTeam";
 import { calculateAverage } from "../redux/actions/heroActions";
+import Team from "./Team/Team";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ const Home = () => {
     <div className="container">
       <div className="row justify-content-around">
         <div className="col-lg-3 cont-badteam">
-          <BadTeam></BadTeam>
+          <Team bad="true"></Team>
         </div>
 
         <div className="col-lg-4 cont-powerstats">
@@ -47,7 +46,7 @@ const Home = () => {
         </div>
 
         <div className="col-lg-3 cont-goodteam">
-          <GoodTeam></GoodTeam>
+          <Team good="true"></Team>
         </div>
       </div>
       <div className="text-center mt-5">
