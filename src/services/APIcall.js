@@ -11,3 +11,13 @@ export const APIcall = async (baseUrl, token, hero) => {
 
   return data;
 };
+
+export const postToken = async (baseUrlPost, values) => {
+  let res;
+  try {
+    res = await axios.post(baseUrlPost, values);
+  } catch (error) {
+    console.log(error);
+  }
+  return res;
+};

@@ -1,23 +1,16 @@
 import React from "react";
 import CountUp from "react-countup";
 import { useSelector } from "react-redux";
+import { POWERSTATS_NAMES } from "../../constants/constants";
 
 const TeamPowerstats = () => {
   const powerStats = useSelector((state) => state.heroReducer.powerStats);
 
-  const powerstatsNames = [
-    "Intelligence",
-    "Strength",
-    "Speed",
-    "Durability",
-    "Power",
-    "Combat",
-  ];
   const powerstatsValues = Object.values(powerStats);
   const powerstatsNewFormat = [];
-  for (let i = 0; i < powerstatsNames.length; i++) {
+  for (let i = 0; i < POWERSTATS_NAMES.length; i++) {
     let stat = {
-      name: powerstatsNames[i],
+      name: POWERSTATS_NAMES[i],
       power: powerstatsValues[i],
     };
     powerstatsNewFormat.push(stat);
