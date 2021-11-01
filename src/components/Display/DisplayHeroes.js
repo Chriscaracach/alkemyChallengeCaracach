@@ -3,29 +3,29 @@ import "./display.css";
 import { useSelector } from "react-redux";
 import BadHeroCard from "./BadHeroCard";
 import GoodHeroCard from "./GoodHeroCard";
-import { BAD, GOOD } from "../../constants/constants";
+import { BAD, GOOD, NULL } from "../../constants/constants";
 
 const DisplayHeroes = () => {
   const heroes = useSelector((state) => state.heroReducer.superHeroes);
   const heroesNullTo0 = [];
   //Quitamos los valores null de los powerstats de los heroes, porque arruinan los powerstats del equipo al sumarse
   heroes.forEach((hero) => {
-    if (hero.powerstats.intelligence === "null") {
+    if (hero.powerstats.intelligence === NULL) {
       hero.powerstats.intelligence = 0;
     }
-    if (hero.powerstats.strength === "null") {
+    if (hero.powerstats.strength === NULL) {
       hero.powerstats.strength = 0;
     }
-    if (hero.powerstats.speed === "null") {
+    if (hero.powerstats.speed === NULL) {
       hero.powerstats.speed = 0;
     }
-    if (hero.powerstats.power === "null") {
+    if (hero.powerstats.power === NULL) {
       hero.powerstats.power = 0;
     }
-    if (hero.powerstats.combat === "null") {
+    if (hero.powerstats.combat === NULL) {
       hero.powerstats.combat = 0;
     }
-    if (hero.powerstats.durability === "null") {
+    if (hero.powerstats.durability === NULL) {
       hero.powerstats.durability = 0;
     }
     heroesNullTo0.push(hero);

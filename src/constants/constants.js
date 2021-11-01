@@ -1,8 +1,19 @@
 export const BASE_URL = "https://superheroapi.com/api.php/";
-export const TOKEN = "10226588721411121";
+export const APIKEY = "10226588721411121";
+
+export const BASE_URL_POST = "http://challenge-react.alkemy.org/";
 
 export const BAD = "bad";
 export const GOOD = "good";
+export const NULL = "null";
+export const POWERSTATS_NAMES = [
+  "Intelligence",
+  "Strength",
+  "Speed",
+  "Durability",
+  "Power",
+  "Combat",
+];
 
 //Redux constants
 //Hero reducer

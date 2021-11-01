@@ -45,11 +45,13 @@ const HeroInfo = () => {
             </li>
             <li className="list-group-item li-custom">
               <p className="lead p-custom m-auto">
+                {/*EL guión de 'eye-color' molestaba para acceder a los datos*/}
                 Eye color: {hero["appearance"]["eye-color"]}
               </p>
             </li>
             <li className="list-group-item li-custom">
               <p className="lead p-custom m-auto">
+                {/*Idem 'eye-color'*/}
                 Hair color: {hero["appearance"]["hair-color"]}
               </p>
             </li>

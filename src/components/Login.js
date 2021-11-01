@@ -1,10 +1,11 @@
 import React from "react";
 import Loader from "./Loader";
 import { Formik, Field, Form, ErrorMessage } from "formik";
+import { postToken } from "../services/APIcall";
+import { BASE_URL_POST } from "../constants/constants";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { setToken } from "../token/AuthFunctions";
-import axios from "axios";
 import {
   loginUser,
   loginError,
@@ -28,13 +29,11 @@ const Login = () => {
           .max(20, "Must be 20 characters or less")
           .required("Password required"),
       })}
-      onSubmit={async (values, { resetForm }) => {
+      onSubmit={async (values) => {
         try {
           dispatch(isLoading());
-          const res = await axios.post(
-            "http://challenge-react.alkemy.org/",
-            values
-          );
+          //Función axios POST
+          const res = postToken(BASE_URL_POST, values);
           setToken(res.data.token);
           dispatch(loginUser());
           dispatch(isLoadingReset());

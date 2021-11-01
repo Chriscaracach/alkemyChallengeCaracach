@@ -7,34 +7,27 @@ import {
   subTeamStats,
   showDetailHero,
 } from "../../redux/actions/heroActions";
+import { POWERSTATS_NAMES, BAD, GOOD } from "../../constants/constants";
 
 const HeroPowerstats = ({ powerStats, superHero }) => {
   const dispatch = useDispatch();
   const removeFromTeam = () => {
-    if (superHero.biography.alignment === "bad") {
+    if (superHero.biography.alignment === BAD) {
       dispatch(removeBadHero(superHero));
       dispatch(subTeamStats(superHero));
     }
-    if (superHero.biography.alignment === "good") {
+    if (superHero.biography.alignment === GOOD) {
       dispatch(removeGoodHero(superHero));
       dispatch(subTeamStats(superHero));
     }
   };
 
   //Era necesario darle otro formato a los datos que venían de la API
-  const powerstatsNames = [
-    "Intelligence",
-    "Strength",
-    "Speed",
-    "Durability",
-    "Power",
-    "Combat",
-  ];
   const powerstatsValues = Object.values(powerStats);
   const powerstatsNewFormat = [];
-  for (let i = 0; i < powerstatsNames.length; i++) {
+  for (let i = 0; i < POWERSTATS_NAMES.length; i++) {
     let stat = {
-      name: powerstatsNames[i],
+      name: POWERSTATS_NAMES[i],
       power: powerstatsValues[i],
     };
     powerstatsNewFormat.push(stat);
