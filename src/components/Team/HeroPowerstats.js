@@ -7,10 +7,12 @@ import {
   subTeamStats,
   showDetailHero,
 } from "../../redux/actions/heroActions";
-import { POWERSTATS_NAMES, BAD, GOOD } from "../../constants/constants";
+import { BAD, GOOD } from "../../constants/constants";
+import { formatDataFromAPI } from "../../utils/functions";
 
 const HeroPowerstats = ({ powerStats, superHero }) => {
   const dispatch = useDispatch();
+
   const removeFromTeam = () => {
     if (superHero.biography.alignment === BAD) {
       dispatch(removeBadHero(superHero));
@@ -22,21 +24,9 @@ const HeroPowerstats = ({ powerStats, superHero }) => {
     }
   };
 
-  //Era necesario darle otro formato a los datos que venían de la API
-  const powerstatsValues = Object.values(powerStats);
-  const powerstatsNewFormat = [];
-  for (let i = 0; i < POWERSTATS_NAMES.length; i++) {
-    let stat = {
-      name: POWERSTATS_NAMES[i],
-      power: powerstatsValues[i],
-    };
-    powerstatsNewFormat.push(stat);
-  }
-  //Con éste sort() ordeno los datos para que salga primero el que más puntos tiene
-  powerstatsNewFormat.sort(function (a, b) {
-    return a.power > b.power ? -1 : a.power < b.power ? 1 : 0;
-  });
-  const map = powerstatsNewFormat.map((item, i) => (
+  const powerStatsInNewFormat = formatDataFromAPI(powerStats);
+
+  const map = powerStatsInNewFormat.map((item, i) => (
     <div key={i}>
       <p className="d-inline">{item.name}</p>
       <div className="float-end">{item.power}</div>

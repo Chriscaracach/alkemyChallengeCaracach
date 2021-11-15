@@ -1,9 +1,10 @@
 import axios from "axios";
+import { BASE_URL, APIKEY } from "../constants/constants";
 
-export const APIcall = async (baseUrl, token, hero) => {
+export const APIcall = async (hero) => {
   let data = [];
   try {
-    const res = await axios.get(baseUrl + token + "/search/" + hero);
+    const res = await axios.get(BASE_URL + APIKEY + "/search/" + hero);
     data = res.data.results;
   } catch (error) {
     console.log(error);

@@ -3,39 +3,20 @@ import "./display.css";
 import { useSelector } from "react-redux";
 import BadHeroCard from "./BadHeroCard";
 import GoodHeroCard from "./GoodHeroCard";
-import { BAD, GOOD, NULL } from "../../constants/constants";
+import { BAD, GOOD } from "../../constants/constants";
+import { nullToZero } from "../../utils/functions";
 
 const DisplayHeroes = () => {
   const heroes = useSelector((state) => state.heroReducer.superHeroes);
-  const heroesNullTo0 = [];
-  //Quitamos los valores null de los powerstats de los heroes, porque arruinan los powerstats del equipo al sumarse
-  heroes.forEach((hero) => {
-    if (hero.powerstats.intelligence === NULL) {
-      hero.powerstats.intelligence = 0;
-    }
-    if (hero.powerstats.strength === NULL) {
-      hero.powerstats.strength = 0;
-    }
-    if (hero.powerstats.speed === NULL) {
-      hero.powerstats.speed = 0;
-    }
-    if (hero.powerstats.power === NULL) {
-      hero.powerstats.power = 0;
-    }
-    if (hero.powerstats.combat === NULL) {
-      hero.powerstats.combat = 0;
-    }
-    if (hero.powerstats.durability === NULL) {
-      hero.powerstats.durability = 0;
-    }
-    heroesNullTo0.push(hero);
-  });
+
+  const heroesNullTo0 = nullToZero(heroes);
+
   const map = heroesNullTo0.map((item) => {
     if (item.biography.alignment === BAD) {
-      return <BadHeroCard superHero={item}></BadHeroCard>;
+      return <BadHeroCard superHero={item} key={item.id}></BadHeroCard>;
     }
     if (item.biography.alignment === GOOD) {
-      return <GoodHeroCard superHero={item}></GoodHeroCard>;
+      return <GoodHeroCard superHero={item} key={item.id}></GoodHeroCard>;
     }
     return null;
   });

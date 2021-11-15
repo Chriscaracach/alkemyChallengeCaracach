@@ -3,7 +3,6 @@ import Loader from "./Loader";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { APIcall } from "../services/APIcall";
-import { BASE_URL, APIKEY } from "../constants/constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
   searchSuperHero,
@@ -20,7 +19,7 @@ const SearchBar = () => {
     try {
       dispatch(setIsLoading());
       //Función de llamada a la API
-      const results = await APIcall(BASE_URL, APIKEY, hero);
+      const results = await APIcall(hero);
       dispatch(resetSearch());
       dispatch(searchSuperHero(results));
       dispatch(resetIsLoading());

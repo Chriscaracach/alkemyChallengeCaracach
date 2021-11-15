@@ -33,7 +33,7 @@ const Login = () => {
         try {
           dispatch(isLoading());
           //Función axios POST
-          const res = postToken(BASE_URL_POST, values);
+          const res = await postToken(BASE_URL_POST, values);
           setToken(res.data.token);
           dispatch(loginUser());
           dispatch(isLoadingReset());
