@@ -1,8 +1,6 @@
 #Hero-container {
   background-color: #4c566a;
 }
-#Hero-img {
-}
 #Hero-title {
   color: #eceff4;
 }
@@ -13,8 +11,8 @@
   color: #eceff4;
 }
 
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .p-custom {
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 }

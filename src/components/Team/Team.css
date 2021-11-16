@@ -2,30 +2,24 @@
   color: #eceff4;
 }
 
-#powerstats {
-  height: 100%;
-  font-size: 70%;
-  opacity: 0;
-  transition: 400ms;
-}
-
 #powerstats:hover {
   opacity: 0.9;
 }
-
-#teamcard {
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+#teamcard-container {
   background-color: #4c566a;
   color: #eceff4;
   transition: all 400ms ease-in-out;
 }
-.teamcard-name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 #teamcard:hover {
-  transform: scale(1.1);
-  z-index: 3;
+  cursor: pointer;
 }
 #heroPowerstats {
   background-color: #eceff4;
@@ -62,46 +56,57 @@
 #team-good-title {
   color: #479c57;
 }
+.team-clickForInfo {
+  color: #eceff4;
+}
 #heroPowerstats {
-  font-size: 0.6rem;
-  z-index: 9;
+  animation: fadeIn linear 500ms;
 }
 #heroPowerstats i {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+}
+.heroPowerstats-p {
+  font-size: 0.6rem;
+  margin-bottom: 0;
 }
 
 /*MQ*/
 
-@media (max-width: 1200px) {
-  #heroPowerstats {
-    font-size: 0.5rem;
+@media (min-width: 1200px) {
+  .heroPowerstats-p {
+    font-size: 0.8rem !important;
   }
   #heroPowerstats i {
     font-size: 1rem;
   }
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .cont-powerstats {
-    order: 1 !important;
-  }
-  .cont-goodteam {
     order: 2 !important;
   }
-  .cont-badteam {
+  .cont-goodteam {
     order: 3 !important;
   }
-  #heroPowerstats {
+  .cont-badteam {
+    order: 1 !important;
+  }
+  .heroPowerstats-p {
     font-size: 1.2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
   }
   #heroPowerstats i {
-    font-size: 2rem;
+    font-size: 1rem;
+  }
+}
+@media (min-width: 576px) {
+  #teamcard-tapForInfo {
+    display: none;
+  }
+  .heroPowerstats-p {
+    font-size: 0.8rem;
   }
 }
 @media (max-width: 576px) {
-  #heroPowerstats {
-    font-size: 0.8rem;
+  .team-clickForInfo {
+    display: none;
   }
 }

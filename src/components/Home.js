@@ -25,17 +25,17 @@ const Home = () => {
   return (
     <div className="container">
       <div className="row justify-content-around">
-        <div className="col-lg-3 cont-badteam">
+        <div className="order-2 col-lg-3 cont-badteam">
           <Team bad="true"></Team>
         </div>
 
-        <div className="col-lg-4 cont-powerstats">
+        <div className="order-1 col-lg-4 cont-powerstats">
           <h1 id="team-powerstats-title">Team stats</h1>
           <TeamPowerstats></TeamPowerstats>
           <AvgWeightHeight></AvgWeightHeight>
         </div>
 
-        <div className="col-lg-3 cont-goodteam">
+        <div className="order-3 col-lg-3 cont-goodteam">
           <Team good="true"></Team>
         </div>
       </div>

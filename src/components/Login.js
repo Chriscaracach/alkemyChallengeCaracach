@@ -47,7 +47,7 @@ const Login = () => {
         }
       }}
     >
-      <div className="container w-25 m-auto mt-5" id="login-container">
+      <div className="container w-75 m-auto mt-5" id="login-container">
         <Form>
           <div className="d-flex flex-column">
             <label htmlFor="email" className="my-1 login-label">

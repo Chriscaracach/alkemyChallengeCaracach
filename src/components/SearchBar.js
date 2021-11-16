@@ -39,27 +39,30 @@ const SearchBar = () => {
         searchHero(values.searchHero);
       }}
     >
-      <div className="container my-2 w-50 text-center">
-        <p className="lead" id="searchbar-text">
-          Search heroes for your team
-        </p>
-        <div className="container d-flex justify-content-center align-items-center">
-          <Form>
-            <Field name="searchHero" type="text" />
-            <button className="btn m-1 action-button" type="submit">
-              <i className="bi bi-search"></i>
-            </button>
-            <ErrorMessage
-              name="searchHero"
-              render={(msg) => <p className="error-message">{msg}</p>}
-            />
-          </Form>
-          {isLoading ? (
-            <div className="d-inline-block">
-              <Loader></Loader>
+      <div className="container my-2 w-100 text-center min-vh-25">
+        {isLoading ? (
+          <div className="d-flex justify-content-center align-items-center">
+            <Loader></Loader>
+          </div>
+        ) : (
+          <>
+            <p className="lead" id="searchbar-text">
+              Search heroes for your team
+            </p>
+            <div className="container d-flex justify-content-center align-items-center">
+              <Form>
+                <Field name="searchHero" type="text" />
+                <ErrorMessage
+                  name="searchHero"
+                  render={(msg) => <p className="error-message">{msg}</p>}
+                />
+                <button className="btn m-1 action-button" type="submit">
+                  <i className="bi bi-search"></i>
+                </button>
+              </Form>
             </div>
-          ) : null}
-        </div>
+          </>
+        )}
       </div>
     </Formik>
   );
