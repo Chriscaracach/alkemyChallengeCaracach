@@ -2,7 +2,6 @@ import React from "react";
 import Loader from "./Loader";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { postToken } from "../services/APIcall";
-import { BASE_URL_POST } from "../constants/constants";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
 import { setToken } from "../token/AuthFunctions";
@@ -33,7 +32,10 @@ const Login = () => {
         try {
           dispatch(isLoading());
           //Función axios POST
-          const res = await postToken(BASE_URL_POST, values);
+          const res = await postToken(
+            process.env.REACT_APP_BASE_URL_POST,
+            values
+          );
           setToken(res.data.token);
           dispatch(loginUser());
           dispatch(isLoadingReset());

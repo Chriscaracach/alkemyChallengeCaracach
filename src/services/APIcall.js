@@ -1,10 +1,15 @@
 import axios from "axios";
-import { BASE_URL, APIKEY } from "../constants/constants";
+// import { BASE_URL, APIKEY } from "../constants/constants";
 
 export const APIcall = async (hero) => {
   let data = [];
   try {
-    const res = await axios.get(BASE_URL + APIKEY + "/search/" + hero);
+    const res = await axios.get(
+      process.env.REACT_APP_API_URL +
+        process.env.REACT_APP_API_KEY +
+        "/search/" +
+        hero
+    );
     data = res.data.results;
   } catch (error) {
     console.log(error);
