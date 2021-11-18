@@ -18,6 +18,8 @@ export const POWERSTATS_NAMES = [
 //Redux constants
 //Hero reducer
 export const SEARCH_SUPERHERO = "SEARCH_SUPERHERO";
+export const SEARCH_ERROR = "SEARCH_ERROR";
+export const RESET_ERROR = "RESET_ERROR";
 export const SET_IS_LOADING = "SET_IS_LOADING";
 export const RESET_IS_LOADING = "RESET_IS_LOADING";
 export const RESET_SEARCH = "RESET_SEARCH";

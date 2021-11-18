@@ -8,6 +8,7 @@ export const APIcall = async (hero) => {
     data = res.data.results;
   } catch (error) {
     console.log(error);
+    return error;
   }
 
   return data;

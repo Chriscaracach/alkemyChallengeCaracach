@@ -53,23 +53,28 @@ const Login = () => {
             <label htmlFor="email" className="my-1 login-label">
               Email
             </label>
-            <Field name="email" type="email" />
+            <Field name="email" type="email" placeholder="Your email" />
             <label htmlFor="password" className="my-1 login-label">
               Password
             </label>
-            <Field name="password" type="password" />
+            <Field
+              name="password"
+              type="password"
+              placeholder="Your password"
+            />
 
             <div className="container w-75 h-25 my-2 text-center d-flex flex-column justify-content-center align-items-center">
               <ErrorMessage
                 name="email"
                 render={(msg) => <p className="error-message">{msg}</p>}
+                data-testid="alert"
               />
               <ErrorMessage
                 name="password"
                 render={(msg) => <p className="error-message">{msg}</p>}
               />
               {isLoginError ? (
-                <p className="error-message">
+                <p className="error-message" role="alert">
                   Invalid email or password, try again
                 </p>
               ) : null}

@@ -29,16 +29,16 @@ const HeroPowerstats = ({ powerStats, superHero }) => {
   const map = powerStatsInNewFormat.map((item, i) => (
     <div key={i} className="w-75 d-flex flex-row justify-content-between m-0">
       <div>
-        <p class="heroPowerstats-p">{item.name}</p>
+        <p className="heroPowerstats-p">{item.name}</p>
       </div>
       <div>
-        <p class="heroPowerstats-p">{item.power}</p>
+        <p className="heroPowerstats-p">{item.power}</p>
       </div>
     </div>
   ));
 
   return (
-    <div className="p-3" id="heroPowerstats">
+    <div className="p-3 rounded" id="heroPowerstats">
       <div className="row gx-1">
         <p className="lead m-0">{superHero.name}</p>
         <div className="col-9">
