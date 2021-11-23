@@ -8,7 +8,9 @@ const AvgWeightHeight = () => {
   return (
     <div className="card p-4" id="team-avg">
       <div className="my-1">
-        <p className="d-inline">Avg. weight (kg)</p>
+        <p className="d-inline" data-testid="avg">
+          Avg. weight (kg)
+        </p>
         <div className="float-end">
           <CountUp start={0} end={weight} duration={1} />
         </div>

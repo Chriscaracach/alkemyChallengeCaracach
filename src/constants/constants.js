@@ -1,8 +1,3 @@
-export const BASE_URL = "https://superheroapi.com/api.php/";
-export const APIKEY = "10226588721411121";
-
-export const BASE_URL_POST = "http://challenge-react.alkemy.org/";
-
 export const BAD = "bad";
 export const GOOD = "good";
 export const NULL = "null";
@@ -18,6 +13,8 @@ export const POWERSTATS_NAMES = [
 //Redux constants
 //Hero reducer
 export const SEARCH_SUPERHERO = "SEARCH_SUPERHERO";
+export const SEARCH_ERROR = "SEARCH_ERROR";
+export const RESET_ERROR = "RESET_ERROR";
 export const SET_IS_LOADING = "SET_IS_LOADING";
 export const RESET_IS_LOADING = "RESET_IS_LOADING";
 export const RESET_SEARCH = "RESET_SEARCH";

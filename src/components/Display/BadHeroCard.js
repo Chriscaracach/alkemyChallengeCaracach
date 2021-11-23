@@ -6,7 +6,7 @@ const BadHeroCard = ({ superHero }) => {
   const badHeroes = useSelector((state) => state.heroReducer.badTeam);
   const dispatch = useDispatch();
 
-  const agregarHeroe = (id, superHero) => {
+  const addHero = (id, superHero) => {
     dispatch(addBadHero(id));
     dispatch(sumTeamStats(superHero));
   };
@@ -34,7 +34,7 @@ const BadHeroCard = ({ superHero }) => {
           <button
             className="btn mx-2 fs-2"
             onClick={() => {
-              agregarHeroe(superHero.id, superHero);
+              addHero(superHero.id, superHero);
             }}
           >
             <i className="bi bi-plus-circle"></i>

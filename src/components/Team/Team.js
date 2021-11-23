@@ -28,6 +28,7 @@ const Team = ({ bad, good }) => {
               className="container p-2 m-2 text-center"
               id="team-good-container"
             >
+              <p className="small team-clickForInfo">Click a hero for info</p>
               {mapGood}
             </div>
           )}
@@ -43,6 +44,7 @@ const Team = ({ bad, good }) => {
               className="container p-2 m-2 text-center"
               id="team-bad-container"
             >
+              <p className="small team-clickForInfo">Click a hero for info</p>
               {mapBad}
             </div>
           )}

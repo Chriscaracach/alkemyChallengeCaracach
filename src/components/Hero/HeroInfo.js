@@ -7,11 +7,14 @@ const HeroInfo = () => {
 
   return (
     <div
-      className="container w-75 border rounded p-2 m-auto my-3"
+      className="container w-75 border rounded p-2 m-auto my-3 d-flex flex-column"
       id="Hero-container"
     >
+      <Link to="/">
+        <button className="btn btn-close btn-lg action-button float-end mb-2"></button>
+      </Link>
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-4 d-flex justify-content-center align-items-center">
           <img
             src={hero.image.url}
             alt={hero.name}
@@ -20,23 +23,20 @@ const HeroInfo = () => {
           />
         </div>
         <div className="col-md-8 p-3">
-          <Link to="/">
-            <button className="btn btn-close btn-lg action-button float-end"></button>
-          </Link>
           <h1 id="Hero-title">{hero.name}</h1>
           <ul className="list-group ul-custom p-2 m-1">
             <li className="list-group-item li-custom">
-              <p className="lead p-custom m-auto">
+              <p className="p-custom m-auto">
                 Weight: {hero.appearance.weight[1]}
               </p>
             </li>
             <li className="list-group-item li-custom">
-              <p className="lead p-custom m-auto">
+              <p className="p-custom m-auto">
                 Height: {hero.appearance.height[1]}
               </p>
             </li>
             <li className="list-group-item li-custom">
-              <p className="lead p-custom m-auto">
+              <p className="p-custom m-auto">
                 Alias:
                 {hero.biography.aliases.map((item) => {
                   return " / " + item;
@@ -44,19 +44,19 @@ const HeroInfo = () => {
               </p>
             </li>
             <li className="list-group-item li-custom">
-              <p className="lead p-custom m-auto">
+              <p className="p-custom m-auto">
                 {/*EL guión de 'eye-color' molestaba para acceder a los datos*/}
                 Eye color: {hero["appearance"]["eye-color"]}
               </p>
             </li>
             <li className="list-group-item li-custom">
-              <p className="lead p-custom m-auto">
+              <p className="p-custom m-auto">
                 {/*Idem 'eye-color'*/}
                 Hair color: {hero["appearance"]["hair-color"]}
               </p>
             </li>
             <li className="list-group-item li-custom">
-              <p className="lead p-custom m-auto">Work: {hero.work.base}</p>
+              <p className="p-custom m-auto">Work: {hero.work.base}</p>
             </li>
           </ul>
         </div>
