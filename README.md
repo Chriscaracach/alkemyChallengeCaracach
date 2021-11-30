@@ -4,6 +4,15 @@
 
 Antes que nada, gracias a Alkemy por la oportunidad.
 
+## Nota corrección 30/11 (Segunda entrega del Challenge)
+
+Se agregaron:
+
+- Diseño Mobile First (solucion de hovers,responsive y media queries pensando en Mobile como primera instancia).
+- Variables de entorno en archivo .env .
+- SDK complementario (utils/functions.js) que nuclea funciones que antes se ejecutaban directamente desde el componente.
+- Tests (sencillos) sobre el componente Login.
+
 ## Superhero challenge
 
 Lo que podés ver en éste repositorio se trata de una app para visualizar superhéroes/superheroínas y agregarlas a tu equipo.
