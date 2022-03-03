@@ -1,7 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Login from "./components/Login";
 import Home from "./components/Home";
 import HeroInfo from "./components/Hero/HeroInfo";
 
@@ -13,7 +12,6 @@ const App = () => {
         <Switch>
           <>
             <Route component={Home} exact path="/" />
-            <Route component={Login} path="/login" />
             <Route component={HeroInfo} path="/heroinfo" />
           </>
         </Switch>
