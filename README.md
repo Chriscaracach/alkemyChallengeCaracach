@@ -4,6 +4,10 @@
 
 Antes que nada, gracias a Alkemy por la oportunidad.
 
+## Nota corrección 3/3/22
+
+Se quito la función de login por problemas con la API donde se enviaba el POST, a la cual no poseo acceso.
+
 ## Nota corrección 30/11 (Segunda entrega del Challenge)
 
 Se agregaron:
