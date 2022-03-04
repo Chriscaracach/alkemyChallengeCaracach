@@ -1,8 +1,6 @@
-# Alkemy Challenge - Christian Caracach
+# SuperHero Search
 
 Éste es el repositorio del proyecto que preparé para acceder a la aceleración de Alkemy.
-
-Antes que nada, gracias a Alkemy por la oportunidad.
 
 ## Nota corrección 3/3/22
 
@@ -17,7 +15,7 @@ Se agregaron:
 - SDK complementario (utils/functions.js) que nuclea funciones que antes se ejecutaban directamente desde el componente.
 - Tests (sencillos) sobre el componente Login.
 
-## Superhero challenge
+## Superhero App
 
 Lo que podés ver en éste repositorio se trata de una app para visualizar superhéroes/superheroínas y agregarlas a tu equipo.
 
