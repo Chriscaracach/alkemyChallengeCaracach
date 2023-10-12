@@ -1,58 +1,58 @@
 # SuperHero Search
 
-Éste es el repositorio del proyecto que preparé para acceder a la aceleración de Alkemy.
+This is the repository of the project I prepared to access the Alkemy acceleration.
 
-## Nota corrección 3/3/22
+## Correction Note 3/3/22
 
-Se quito la función de login por problemas con la API donde se enviaba el POST, a la cual no poseo acceso.
+The login function was removed due to issues with the API where the POST request was sent, to which I do not have access.
 
-## Nota corrección 30/11 (Segunda entrega del Challenge)
+## Correction Note 30/11 (Second delivery of the Challenge)
 
-Se agregaron:
+The following were added:
 
-- Diseño Mobile First (solucion de hovers,responsive y media queries pensando en Mobile como primera instancia).
-- Variables de entorno en archivo .env .
-- SDK complementario (utils/functions.js) que nuclea funciones que antes se ejecutaban directamente desde el componente.
-- Tests (sencillos) sobre el componente Login.
+- Mobile-First design (solution for hovers, responsive design, and media queries, with a primary focus on mobile).
+- Environment variables in the .env file.
+- Supplementary SDK (utils/functions.js) that consolidates functions that were previously executed directly from the component.
+- Basic tests for the Login component.
 
 ## Superhero App
 
-Lo que podés ver en éste repositorio se trata de una app para visualizar superhéroes/superheroínas y agregarlas a tu equipo.
+What you can see in this repository is an app for viewing superheroes/superheroines and adding them to your team.
 
-Para acceder vas a tener que loguearte con el mail __challenge@alkemy.org__ y la contraseña **react**.
+To access it, you will need to log in with the email __challenge@alkemy.org__ and the password **react**.
 
 ![Login](imgReadme/login.png "Login")
 
-La **API** que vamos a consumir es [SuperHeroAPI](https://superheroapi.com/).
+The **API** we will be using is the [SuperHeroAPI](https://superheroapi.com/).
 
-## Funcionalidades
+## Features
 
-Dentro de las funcionalidades, podés buscar héroes de la API, agregarlos a tu equipo (pueden ser malos o buenos),
+Among the features, you can search for heroes from the API, add them to your team (they can be good or bad),
 
-![Búsqueda](imgReadme/heros.png "Búsqueda")
+![Search](imgReadme/heros.png "Search")
 
 ![Team](imgReadme/team.png "Team")
 
 ![Good Team](imgReadme/goodteam.png "Good Team")
 
-revisar información detallada de cada héroe,
+check detailed information about each hero,
 
-![info](imgReadme/info.png "Info")
+![Info](imgReadme/info.png "Info")
 
-y quitarlos de tu equipo si no estás conforme.
+and remove them from your team if you are not satisfied.
 
-Además contás con información de los powerstats de cada héroe en tu equipo, y una suma de los stats totales (y promedios de peso y altura). La stat que más puntos tenga en tu equipo, se pinta de otro color.
+Additionally, you have information about the power stats of each hero in your team, and a sum of the total stats (and averages of weight and height). The stat with the highest points in your team is highlighted in a different color.
 
 ## Login
 
-El login tiene la particularidad de que cuando se envía la información de email y contraseña, obtiene un token de vuelta y lo guarda en LocalStorage para no tener que repetir el log cada vez que se entra en la app.
+The login has the particularity that when the email and password information is sent, it retrieves a token and stores it in LocalStorage to avoid having to log in every time you enter the app.
 
-## Instalación
+## Installation
 
-- Primero, cloná el repositorio **git clone https://github.com/Chriscaracach/alkemyChallengeCaracach** ,
+- First, clone the repository with **git clone https://github.com/Chriscaracach/alkemyChallengeCaracach**,
 
-- Después, instalá las dependencias con **npm install**.
+- Then, install the dependencies with **npm install**.
 
-- Corrélo en tu pc con **npm start**.
+- Run it on your computer with **npm start**.
 
-## Si solo te interesa utilizar la app sin ver el repositorio, podés verla [ACÁ](https://alkemychallengeccaracach.web.app/) .
+## If you are only interested in using the app without viewing the repository, you can access it [HERE](https://alkemychallengeccaracach.web.app/).
