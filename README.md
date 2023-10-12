@@ -16,7 +16,7 @@ The following were added:
 - Basic tests for the Login component.
 
 ## Superhero App
-
+### ---NOT AVAILABLE---
 What you can see in this repository is an app for viewing superheroes/superheroines and adding them to your team.
 
 To access it, you will need to log in with the email __challenge@alkemy.org__ and the password **react**.
