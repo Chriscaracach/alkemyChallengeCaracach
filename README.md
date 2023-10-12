@@ -16,6 +16,8 @@ The following were added:
 - Basic tests for the Login component.
 
 ## Superhero App
+
+## Access
 ### ---NOT AVAILABLE---
 What you can see in this repository is an app for viewing superheroes/superheroines and adding them to your team.
 
@@ -44,7 +46,7 @@ and remove them from your team if you are not satisfied.
 Additionally, you have information about the power stats of each hero in your team, and a sum of the total stats (and averages of weight and height). The stat with the highest points in your team is highlighted in a different color.
 
 ## Login
-
+### ---NOT AVAILABLE---
 The login has the particularity that when the email and password information is sent, it retrieves a token and stores it in LocalStorage to avoid having to log in every time you enter the app.
 
 ## Installation
